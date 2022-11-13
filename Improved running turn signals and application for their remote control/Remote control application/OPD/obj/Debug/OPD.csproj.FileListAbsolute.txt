@@ -1,0 +1,30 @@
+D:\ОПД\OPD\OPD\bin\Debug\OPD.exe.config
+D:\ОПД\OPD\OPD\bin\Debug\OPD.exe
+D:\ОПД\OPD\OPD\bin\Debug\OPD.pdb
+D:\ОПД\OPD\OPD\obj\Debug\OPD.csprojAssemblyReference.cache
+D:\ОПД\OPD\OPD\obj\Debug\OPD.Form1.resources
+D:\ОПД\OPD\OPD\obj\Debug\OPD.Properties.Resources.resources
+D:\ОПД\OPD\OPD\obj\Debug\OPD.csproj.GenerateResource.cache
+D:\ОПД\OPD\OPD\obj\Debug\OPD.exe
+D:\ОПД\OPD\OPD\obj\Debug\OPD.pdb
+D:\Основы проектной деятельности\Готовый проект\другая команда\OPD\OPD\bin\Debug\OPD.exe.config
+D:\Основы проектной деятельности\Готовый проект\другая команда\OPD\OPD\bin\Debug\OPD.exe
+D:\Основы проектной деятельности\Готовый проект\другая команда\OPD\OPD\bin\Debug\OPD.pdb
+D:\Основы проектной деятельности\Готовый проект\другая команда\OPD\OPD\obj\Debug\OPD.csprojAssemblyReference.cache
+D:\Основы проектной деятельности\Готовый проект\другая команда\OPD\OPD\obj\Debug\OPD.Form1.resources
+D:\Основы проектной деятельности\Готовый проект\другая команда\OPD\OPD\obj\Debug\OPD.Properties.Resources.resources
+D:\Основы проектной деятельности\Готовый проект\другая команда\OPD\OPD\obj\Debug\OPD.csproj.GenerateResource.cache
+D:\Основы проектной деятельности\Готовый проект\другая команда\OPD\OPD\obj\Debug\OPD.csproj.CoreCompileInputs.cache
+D:\Основы проектной деятельности\Готовый проект\другая команда\OPD\OPD\obj\Debug\OPD.exe
+D:\Основы проектной деятельности\Готовый проект\другая команда\OPD\OPD\obj\Debug\OPD.pdb
+D:\Мое IT резюме\Github\Для загрузки\arduino-c-projects\Running turn signals and applications for their remote control\Финальный скетч\OPD\OPD\bin\Debug\OPD.exe.config
+D:\Мое IT резюме\Github\Для загрузки\arduino-c-projects\Running turn signals and applications for their remote control\Финальный скетч\OPD\OPD\bin\Debug\OPD.exe
+D:\Мое IT резюме\Github\Для загрузки\arduino-c-projects\Running turn signals and applications for their remote control\Финальный скетч\OPD\OPD\bin\Debug\OPD.pdb
+D:\Мое IT резюме\Github\Для загрузки\arduino-c-projects\Running turn signals and applications for their remote control\Финальный скетч\OPD\OPD\obj\Debug\OPD.csproj.AssemblyReference.cache
+D:\Мое IT резюме\Github\Для загрузки\arduino-c-projects\Running turn signals and applications for their remote control\Финальный скетч\OPD\OPD\obj\Debug\OPD.csproj.SuggestedBindingRedirects.cache
+D:\Мое IT резюме\Github\Для загрузки\arduino-c-projects\Running turn signals and applications for their remote control\Финальный скетч\OPD\OPD\obj\Debug\OPD.Form1.resources
+D:\Мое IT резюме\Github\Для загрузки\arduino-c-projects\Running turn signals and applications for their remote control\Финальный скетч\OPD\OPD\obj\Debug\OPD.Properties.Resources.resources
+D:\Мое IT резюме\Github\Для загрузки\arduino-c-projects\Running turn signals and applications for their remote control\Финальный скетч\OPD\OPD\obj\Debug\OPD.csproj.GenerateResource.cache
+D:\Мое IT резюме\Github\Для загрузки\arduino-c-projects\Running turn signals and applications for their remote control\Финальный скетч\OPD\OPD\obj\Debug\OPD.csproj.CoreCompileInputs.cache
+D:\Мое IT резюме\Github\Для загрузки\arduino-c-projects\Running turn signals and applications for their remote control\Финальный скетч\OPD\OPD\obj\Debug\OPD.exe
+D:\Мое IT резюме\Github\Для загрузки\arduino-c-projects\Running turn signals and applications for their remote control\Финальный скетч\OPD\OPD\obj\Debug\OPD.pdb

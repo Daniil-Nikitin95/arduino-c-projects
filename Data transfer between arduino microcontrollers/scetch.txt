@@ -1,0 +1,131 @@
+// Код для Основной платы (верхняя)
+#include <Wire.h> 	// Библиотека для связи I2C
+int x, y;
+bool dataFlag;
+bool dataByte[8] =
+{
+  0,0,0,0,1,0,1,0
+};
+
+void setup() 
+{
+  Wire.begin(); 
+  Serial.begin(9600);
+  
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+}
+
+void loop() 
+{
+  x=9;
+  y=1;
+  Wire.beginTransmission(9); 	// Адрес ведомой платы 
+
+
+// Передача значения потенциометра на ведомую плату  
+  Wire.write(x);
+  Wire.write(y);			         
+  Wire.endTransmission(); 
+  Serial.print(x);
+  transmiteByte(dataByte);
+  
+  transmite(1);
+  delay(1000);
+}
+
+//для передачи значения
+void transmite(int data)
+{
+  digitalWrite(3, data);
+  digitalWrite(2, HIGH);
+  delay(20);
+  digitalWrite(2, LOW);
+  
+}
+
+void transmiteByte(bool dataBool[8])
+{
+  for(int i=7;i>=0;i--)
+  {
+    transmite((int)dataBool[i]);
+  }
+}
+
+
+// Код для ведомой платы (нижняя)
+#include <Wire.h>
+int x, y, data, port, k;
+bool byteEndFlag;
+bool dataByte[8] = 
+{
+  0,0,0,0,0,0,0,0
+};
+bool state;
+
+void setup() 
+{
+  pinMode (13, OUTPUT);
+  pinMode (10, OUTPUT);
+  pinMode (9, OUTPUT);	
+  Wire.begin(9); 		 
+  Wire.onReceive(receiveEvent);
+  Serial.begin(9600);
+  k=0;
+  
+  attachInterrupt(0, onDataReceived, RISING);
+  pinMode(3, INPUT);
+}
+
+
+// Получение значений от основной платы
+void receiveEvent(int bytes) 
+{
+  x = Wire.read();
+  y = Wire.read();		
+  if(x>=0 && x<13 && (y==0 || y==1))digitalWrite(x, y);
+}
+
+void loop() 
+{
+  if (x > 88) { 		
+    delay(200);
+  }
+  else{
+     delay(400);
+  }
+}
+
+unsigned int ToByte(bool b[8])
+{
+  unsigned char c = 0;
+  for (int i=0; i < 8; ++i)if(b[i])c |= 1 << i;
+  return (int)c;
+}
+
+
+//получение данных
+void onDataReceived()
+{
+  if(k==8)
+  {
+    k=0;
+    state = digitalRead(3);
+    for(int i=0;i<8;i++)
+    {
+      Serial.print(dataByte[i]);		//вывод в монитор последовательного интерфейса
+    }
+    Serial.print(" ");
+    int number = ToByte(dataByte);
+    Serial.print(number);
+    Serial.print(" ");
+    Serial.println(state);
+    digitalWrite(number, state);
+  }
+  
+  else 
+  {
+    dataByte[k]=digitalRead(3);
+    k++;
+  }
+}

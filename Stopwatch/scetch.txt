@@ -1,0 +1,83 @@
+const int ButtonPin = 13;
+const int InterruptPin = 2;//пин прерывания
+const int DataPins[] = { 12, 11, 10 };// пин данных (англ. data)
+const int LatchPins[] = { 9, 8, 7 };// пин строба (англ. latch)
+const int ClockPins[] = { 6, 5, 4 };// пин такта (англ. clock)
+volatile bool IsStart;
+const byte Data[] = { 0B00000010, 0B11001111, 0B00010001, 0B0000101, 0B01001100, 0B00100100, 0B00100000, 0B00001111, 0B00000000, 0B00000100 };
+volatile int Second;
+	
+void setup()
+{
+  pinMode(ButtonPin, OUTPUT);
+  pinMode(InterruptPin, INPUT_PULLUP);
+  for(int i = 0; i < sizeof(DataPins)/sizeof(DataPins[0]); i++)
+  {
+    pinMode(DataPins[i], INPUT);
+    pinMode(LatchPins[i], OUTPUT);
+    pinMode(ClockPins[i], OUTPUT);
+  }
+  IsStart = false;
+  Second = 0;
+  showTime();
+  attachInterrupt(digitalPinToInterrupt(InterruptPin), clickStart, RISING);
+}
+
+void loop()
+{  
+  if(IsStart)
+  {
+    showTime();
+  	delay(1000);
+    Second++;
+  }
+}
+
+
+//включить или выключить секундомер
+void clickStart()
+{
+  if(IsStart)
+  {
+    IsStart = false;
+  }
+  else
+  {
+    IsStart = true;
+    Second = 0;
+  }
+}
+
+
+//вывести на дисплей время
+void showTime()
+{
+  int second = Second % 10;
+  int tenSecond = (Second / 10) % 6;
+  int minute = (Second / 60) % 10;
+  writeDigital(LOW);
+  setShiftOut(0, Data[second]);
+  setShiftOut(1, Data[tenSecond]);
+  setShiftOut(2, Data[minute]);
+  writeDigital(HIGH);
+}
+
+
+// для записи в 74HC595 нужно притянуть пин строба к земле
+void writeDigital(int mode)
+{
+  for(int i = 0; i < sizeof(DataPins)/sizeof(DataPins[0]); i++)
+  {
+    digitalWrite(DataPins[i], mode);
+    digitalWrite(LatchPins[i], mode);
+    digitalWrite(ClockPins[i], mode);
+  }
+}
+
+
+  // задвигаем (англ. shift out) байт-маску бит за битом,
+  // начиная с младшего (англ. Least Significant Bit first)
+void setShiftOut(int pinIndex, byte data)
+{
+  shiftOut(DataPins[pinIndex], ClockPins[pinIndex], LSBFIRST, data);
+}
